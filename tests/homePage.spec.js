@@ -13,5 +13,5 @@ let pageUrl=  await page.url()
 console.log('This is the page url: ', pageUrl)
 await expect(page).toHaveURL('https://www.demoblaze.com/')
 await page.close()
-
+ 
 })
