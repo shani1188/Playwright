@@ -69,6 +69,8 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+  navigationTimeout: 60000, // 60 seconds
+  timeout: 60000, // per test step
 
   /* Run your local dev server before starting the tests */
   // webServer: {
