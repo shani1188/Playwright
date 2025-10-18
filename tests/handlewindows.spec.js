@@ -18,7 +18,7 @@ test('Handle Pages/Windows',async()=>{
 
 })
 
-test.only('Handle Multiple Pages/Windows',async()=>{
+test('Handle Multiple Pages/Windows',async()=>{
 
     const brower= await chromium.launch()
     const context =await brower.newContext()
@@ -30,12 +30,14 @@ test.only('Handle Multiple Pages/Windows',async()=>{
     await page1.locator('//a[text()="OrangeHRM, Inc"]').click() // click on link which opens new page
     
     const newPageTab= await pagePromise
-    await expect(newPageTab).toHaveTitle('Human Resources Management Software | HRMS | OrangeHRM')
+    await expect(newPageTab).toHaveTitle('Human Resources Management Software | HRMS | OrangeHR')
 
     await page1.waitForTimeout(3000)
     await newPageTab.waitForTimeout(3000)
 
     await brower.close()
-
+ //Reporter command also use to get test reports in multiple formats. 
+ // npx playwright test tests/handlewindows.spec.js --project chromium --headed --reporter=json  //reporter in json format
+ // there are multiple formats available for reporter like html, json, junit, list, dot etc.
 
 })
